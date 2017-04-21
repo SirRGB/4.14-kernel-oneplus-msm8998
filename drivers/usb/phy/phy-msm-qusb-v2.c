@@ -421,6 +421,15 @@ static int qusb_phy_init(struct usb_phy *phy)
 		return ret;
 	}
 
+	/* bump up vdda33 voltage to operating level*/
+	ret = regulator_set_voltage(qphy->vdda33, qphy->vdda33_levels[1],
+						qphy->vdda33_levels[2]);
+	if (ret) {
+		dev_err(qphy->phy.dev,
+				"Unable to set voltage for vdda33:%d\n", ret);
+		return ret;
+	}
+
 	/*
 	 * ref clock is enabled by default after power on reset. Linux clock
 	 * driver will disable this clock as part of late init if peripheral
