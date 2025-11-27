@@ -31,7 +31,6 @@
  * Remove this if/when that API is no longer used
  */
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#pragma GCC diagnostic ignored "-Wint-conversion"
 
 #define PKEY_ID_PKCS7 2
 
